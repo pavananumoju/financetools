@@ -76,10 +76,10 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 ## 4. CURRENT STATUS
 
 ```
-Phase:  1 — Foundation Setup
-Step:   Next.js project initialized. Folder structure being set up.
-Last:   Created financetools project at /projects/Hustle/Project_financetools/financetools
-Next:   Push to GitHub → Connect Vercel → Start Tool 1.1 Step 1
+Phase:  1 — Active Development
+Step:   Foundation complete. Starting Tool 1.1 Job Switch Salary Sanity Checker.
+Last:   Vercel connected. Live at https://financetools-puce.vercel.app/
+Next:   Start Tool 1.1 Step 1 — create app/job-switch-calculator/page.js
 ```
 
 *Update this every session in 2-3 lines. Nothing more.*
@@ -114,9 +114,9 @@ Next:   Push to GitHub → Connect Vercel → Start Tool 1.1 Step 1
 
 *Complete these in order. Do not jump ahead.*
 
-- [ ] **Action 1:** Push project to GitHub — create repo financetools, push initial commit from dev branch
-- [ ] **Action 2:** Connect GitHub repo to Vercel — get the vercel.app live URL
-- [ ] **Action 3:** Start Tool 1.1 Step 1 — create app/job-switch-calculator/page.js, verify it loads
+- [x] Action 1: GitHub repo created and pushed
+- [x] Action 2: Vercel connected — https://financetools-puce.vercel.app/
+- [ ] Action 3: Start Tool 1.1 Step 1 — create app/job-switch-calculator/page.js
 
 ---
 
