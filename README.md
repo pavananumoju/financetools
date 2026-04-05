@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FinanceTools
+Financial decision tools for Indian tech professionals.
+Built to give the real number, not just the headline number.
 
-## Getting Started
+## Project Status
+Phase 1 — In Development
+Current: Foundation setup complete. Building Job Switch Salary Sanity Checker.
 
-First, run the development server:
+## Tech Stack
+- Framework: Next.js (App Router, JavaScript)
+- Styling: Tailwind CSS
+- Hosting: Vercel (free tier)
+- Repository: GitHub
 
-```bash
+## Local Development
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Folder Structure
+app/                    → Pages and routing. One folder per tool.
+components/layout/      → Header and Footer used across all pages
+components/ui/          → Reusable buttons, cards, input elements
+utils/                  → Calculation logic. Pure functions, no UI here.
+constants/              → Static data — city indexes, tax slabs, etc.
+public/                 → Static assets
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Build Rules
+- One tool = one folder under app/ = one real URL
+- Calculation logic always in utils/ — never inside components
+- Static data always in constants/ — never hardcoded in components
+- Components handle display only — zero business logic inside them
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Git Commit Convention
+feat: add job switch calculator input UI
+fix: correct purchasing power formula
+chore: update project document
+style: mobile layout fix on calculator page
 
-## Learn More
+## Branch Strategy
+main → always deployable, push only when tool is complete and tested
+dev  → active development branch
 
-To learn more about Next.js, take a look at the following resources:
+## Tool Build Order
+Phase 1:
+  1.1 Job Switch Salary Sanity Checker ← CURRENT
+  1.2 New vs Old Tax Regime Comparator
+  1.3 Emergency Fund Calculator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Phase 2:
+  2.1 FD Ladder Planner
+  2.2 SIP vs FD vs RD Comparison
+  2.3 Goal-based SIP Calculator
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Phase 3:
+  3.1 Credit Card Recommender
+  3.2 Lounge Access Finder
+  3.3 Reward Points Value Calculator
 
-## Deploy on Vercel
+## Session Rules
+- Always open PROJECT.md before starting a session
+- Always update PROJECT.md Section 4 after finishing
+- Never work on two tools simultaneously
+- New ideas go to PROJECT.md Section 7 Parking Lot — not immediate action
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## AI Workflow
+- Claude: primary code generation and project context
+- ChatGPT: second opinion on logic or approach
+- You: product decisions, testing, final review
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+Hosted on Vercel. Every push to main auto-deploys.
+Live URL: (update once connected to Vercel)
+Domain: Pending — buy only after first tool is live and working
