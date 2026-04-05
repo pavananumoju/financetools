@@ -77,9 +77,9 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 ```
 Phase:  1 — Active Development
-Step:   Foundation complete. Starting Tool 1.1 Job Switch Salary Sanity Checker.
-Last:   Vercel connected. Live at https://financetools-puce.vercel.app/
-Next:   Start Tool 1.1 Step 1 — create app/job-switch-calculator/page.js
+Step:   Tool 1.1 complete and live. Building homepage next.
+Last:   Job Switch Salary Sanity Checker live at financetools-puce.vercel.app/job-switch-calculator
+Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
 ```
 
 *Update this every session in 2-3 lines. Nothing more.*
@@ -115,8 +115,10 @@ Next:   Start Tool 1.1 Step 1 — create app/job-switch-calculator/page.js
 *Complete these in order. Do not jump ahead.*
 
 - [x] Action 1: GitHub repo created and pushed
-- [x] Action 2: Vercel connected — https://financetools-puce.vercel.app/
-- [ ] Action 3: Start Tool 1.1 Step 1 — create app/job-switch-calculator/page.js
+- [x] Action 2: Vercel connected — https://financetools-puce.vercel.app
+- [x] Action 3: Tool 1.1 live at /job-switch-calculator
+- [ ] Action 4: Build homepage — replace default Next.js page with proper landing page
+- [ ] Action 5: Start Tool 1.2 — New vs Old Tax Regime Comparator
 
 ---
 

@@ -1,65 +1,166 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { Calculator, TrendingUp, CreditCard, ShieldCheck, ArrowRight, Mail } from 'lucide-react'
 
-export default function Home() {
+const tools = [
+  {
+    title: 'Salary Sanity Checker',
+    description: 'Compare purchasing power across Indian cities before switching jobs.',
+    uniqueInsight: 'Shows your real hike after city cost adjustment',
+    href: '/job-switch-calculator',
+    tag: 'Live',
+    tagColor: 'bg-indigo-100 text-indigo-700',
+    iconBg: 'bg-indigo-50 group-hover:bg-indigo-100',
+    icon: <Calculator size={20} className="text-indigo-600" />,
+    active: true,
+  },
+  {
+    title: 'New vs Old Tax Regime',
+    description: 'Find the exact break-even salary where the new regime stops being better.',
+    uniqueInsight: 'Shows the exact break-even point',
+    href: null,
+    tag: 'Coming Soon',
+    tagColor: 'bg-slate-100 text-slate-500',
+    iconBg: 'bg-slate-50',
+    icon: <TrendingUp size={20} className="text-slate-400" />,
+    active: false,
+  },
+  {
+    title: 'Emergency Fund Calc',
+    description: 'Months of runway you need before safely making the switch.',
+    uniqueInsight: 'Shows your safe switch date',
+    href: null,
+    tag: 'Coming Soon',
+    tagColor: 'bg-slate-100 text-slate-500',
+    iconBg: 'bg-slate-50',
+    icon: <ShieldCheck size={20} className="text-slate-400" />,
+    active: false,
+  },
+  {
+    title: 'Credit Card Recommender',
+    description: 'Find the best card based on your actual monthly spend mix.',
+    uniqueInsight: 'Shows effective cashback rate on your spend',
+    href: null,
+    tag: 'Coming Soon',
+    tagColor: 'bg-slate-100 text-slate-500',
+    iconBg: 'bg-slate-50',
+    icon: <CreditCard size={20} className="text-slate-400" />,
+    active: false,
+  },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main>
+
+      {/* Hero */}
+      <section className="mx-auto max-w-6xl px-6 pt-20 pb-16">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-xs font-medium text-indigo-600 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-indigo-600"></span>
+            Built for Indian tech professionals
+          </div>
+          <h1 className="text-5xl font-bold text-slate-900 leading-tight tracking-tight mb-6">
+            The real number,<br />
+            not the <span className="text-indigo-600">headline</span> number.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl">
+            Financial decision tools that show what other calculators hide — purchasing power, real hikes, break-even salaries. No clutter, no ads.
           </p>
+          <div className="flex gap-3">
+            <Link
+              href="/job-switch-calculator"
+              className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
+            >
+              Try Salary Checker
+            </Link>
+            <button className="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-indigo-200 hover:text-indigo-600 transition-colors">
+              Join Newsletter
+            </button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Tools Grid */}
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-slate-900">Financial Tools</h2>
+          <p className="mt-1 text-sm text-slate-500">Each tool shows one insight no other Indian finance site shows.</p>
         </div>
-      </main>
-    </div>
-  );
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {tools.map((tool) => (
+            <div
+              key={tool.title}
+              className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all ${
+                tool.active
+                  ? 'hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/5 cursor-pointer'
+                  : 'opacity-70'
+              }`}
+            >
+              {/* Icon */}
+              <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${tool.iconBg}`}>
+                {tool.icon}
+              </div>
+
+              {/* Tag */}
+              <span className={`self-start rounded-full px-2.5 py-0.5 text-xs font-semibold mb-3 ${tool.tagColor}`}>
+                {tool.tag}
+              </span>
+
+              <h3 className="text-base font-bold text-slate-900 mb-2">{tool.title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed flex-grow">{tool.description}</p>
+
+              {/* Unique insight */}
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <p className="text-xs text-indigo-600 font-medium">{tool.uniqueInsight}</p>
+              </div>
+
+              {/* Hover arrow — only on active */}
+              {tool.active && (
+                <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Open Tool <ArrowRight size={13} />
+                </div>
+              )}
+
+              {tool.active && (
+                <Link href={tool.href} className="absolute inset-0 rounded-2xl" aria-label={tool.title} />
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-xl">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-600">
+                <Mail size={13} />
+                Newsletter
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">Learning in Public</h2>
+              <p className="text-slate-500 text-sm leading-relaxed">
+                Documenting the journey of building real things with AI. Honest experiences, what I learned, and what failed. No generic AI hype.
+              </p>
+            </div>
+            <div className="w-full max-w-sm">
+              <div className="flex flex-col gap-3">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                />
+                <button className="w-full rounded-xl bg-indigo-600 px-4 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors">
+                  Subscribe — it's free
+                </button>
+              </div>
+              <p className="mt-3 text-xs text-slate-400">No spam. Unsubscribe anytime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  )
 }
