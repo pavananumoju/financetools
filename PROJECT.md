@@ -1,7 +1,7 @@
 # PROJECT MASTER DOCUMENT
 ### Finance Tools Website — Indian Tech Professionals
 **Last Updated:** April 2026
-**Status:** Foundation Setup — In Progress
+**Status:** Phase 1 — Active Development
 
 ---
 
@@ -31,6 +31,8 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 | Domain | Pending | Buy only after first tool is live |
 | Database | None for Phase 1-3 | All calculators run in browser |
 | IDE | VS Code + Claude.ai | Claude for generation, VS Code for editing |
+| Icons | lucide-react | Lightweight, consistent icon set |
+| Future IDE | Cursor | Switch when codebase grows — better for sweeping UI changes |
 | Future hosting | AWS t3.micro or DigitalOcean | Move here if Vercel limits are hit |
 
 ---
@@ -40,11 +42,11 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 ### PHASE 1 — Job & Salary Tools
 *Closest to your lived experience. Lowest research burden. Start here.*
 
-| # | Tool | Key Unique Output |
-|---|---|---|
-| 1.1 | **Job Switch Salary Sanity Checker** ← CURRENT | Purchasing power gain after city cost adjustment |
-| 1.2 | New vs Old Tax Regime Comparator | Break-even salary where new regime stops being better |
-| 1.3 | Emergency Fund Calculator for Job Switchers | Exact months of runway needed before switching |
+| # | Tool | Key Unique Output | Status |
+|---|---|---|---|
+| 1.1 | Job Switch Salary Sanity Checker | Purchasing power gain after city cost adjustment | LIVE |
+| 1.2 | New vs Old Tax Regime Comparator | Break-even salary where new regime stops being better | NEXT |
+| 1.3 | Emergency Fund Calculator for Job Switchers | Exact months of runway needed before switching | Pending |
 
 ### PHASE 2 — Investment Tools
 *Evergreen content, good affiliate potential, low maintenance.*
@@ -77,9 +79,11 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 ```
 Phase:  1 — Active Development
-Step:   Tool 1.1 complete and live. Building homepage next.
-Last:   Job Switch Salary Sanity Checker live at financetools-puce.vercel.app/job-switch-calculator
-Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
+Step:   Tool 1.1 complete and live. Homepage complete and live. Starting Tool 1.2.
+Last:   Homepage built with hero, tool cards, newsletter CTA, header, footer.
+        Live at https://financetools-puce.vercel.app
+        Tool 1.1 live at https://financetools-puce.vercel.app/job-switch-calculator
+Next:   Build Tool 1.2 — New vs Old Tax Regime Comparator
 ```
 
 *Update this every session in 2-3 lines. Nothing more.*
@@ -100,13 +104,19 @@ Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
 - ✅ Monetization via affiliate links — Zerodha, Groww, Ditto, BankBazaar
 - ✅ Each tool must have one unique output no other Indian finance site shows
 - ✅ AI workflow — Claude primary, ChatGPT second opinion, you decide
-- ✅ VS Code + Claude.ai chosen over Cursor (switch to Cursor later if needed)
+- ✅ VS Code + Claude.ai now, switch to Cursor when codebase grows
 - ✅ .com domain preferred — buy on Porkbun or Namecheap, avoid GoDaddy
 - ✅ One tool = one folder under app/ = one real URL
 - ✅ Calculation logic always in utils/ — never inside components
 - ✅ Static data always in constants/ — never hardcoded in components
 - ✅ Git branch strategy: main (deployable) + dev (working)
 - ✅ Commit convention: feat / fix / chore / style prefixes
+- ✅ Light theme chosen — professional, trusted, easier to maintain solo
+- ✅ Indigo/purple accent color — modern, distinct from typical Indian finance green/orange
+- ✅ lucide-react for icons — lightweight, consistent
+- ✅ UI changes deferred to Phase 3+ — build tools first, restyle after real user feedback
+- ✅ Dark/light toggle deferred — adds complexity, not worth it at this stage
+- ✅ Tool cards show unique insight line — reinforces core promise on homepage
 
 ---
 
@@ -117,8 +127,10 @@ Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
 - [x] Action 1: GitHub repo created and pushed
 - [x] Action 2: Vercel connected — https://financetools-puce.vercel.app
 - [x] Action 3: Tool 1.1 live at /job-switch-calculator
-- [ ] Action 4: Build homepage — replace default Next.js page with proper landing page
-- [ ] Action 5: Start Tool 1.2 — New vs Old Tax Regime Comparator
+- [x] Action 4: Homepage built and live
+- [ ] **Action 5:** Start Tool 1.2 — create app/tax-regime-comparator/page.js, verify it loads at the correct URL
+- [ ] **Action 6:** Complete Tool 1.2 following Section 9 build template Steps 1-8
+- [ ] **Action 7:** Update homepage header and tool cards when Tool 1.2 is live
 
 ---
 
@@ -135,7 +147,10 @@ Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
 - Programmatic SEO pages — e.g. "salary calculator Hyderabad to Bengaluru"
 - Credit card affiliate direct tie-ups — after Phase 3
 - Sponsored placements — only after meaningful traffic
-- Switch to Cursor IDE — when codebase grows and Cursor subscription is justified
+- Dark/light theme toggle — Phase 3+ after tools are established
+- UI restyling / redesign — Phase 3+ after real user feedback
+- Framer Motion animations — low priority, adds bundle size
+- Switch to Cursor IDE — when codebase grows and sweeping changes are needed
 
 ---
 
@@ -152,9 +167,9 @@ Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
 | Long term | Sponsored placements, digital products, paid tiers |
 
 **Realistic income expectation (honest):**
-- Month 1–6: ₹0 — building and Google indexing phase
-- Month 6–12: ₹2,000–₹8,000/month if tools are ranking
-- Year 2+: ₹15,000–₹50,000/month as tools compound and conversions grow
+- Month 1-6: ₹0 — building and Google indexing phase
+- Month 6-12: ₹2,000-₹8,000/month if tools are ranking
+- Year 2+: ₹15,000-₹50,000/month as tools compound and conversions grow
 
 ---
 
@@ -163,18 +178,17 @@ Next:   Build homepage (app/page.js) → then Tool 1.2 Tax Regime Comparator
 *Follow this exact sequence for every single tool. No skipping steps.*
 
 **STEP 1 — Page Setup**
-- Create new page file (e.g. app/job-switch-calculator/page.js)
+- Create new page file (e.g. app/tax-regime-comparator/page.js)
 - Add basic layout — page title and one-line description of what the tool does
 - Verify the page loads at the correct URL before touching any logic
 
 **STEP 2 — Input UI**
-- Add all input fields (salary, city, company type, etc.)
-- Add labels, placeholder text, and helper text where needed
+- Add all input fields with labels, placeholder text, and helper text
 - Add the Calculate button
 - No logic yet — just the visual form working correctly
 
 **STEP 3 — Calculation Logic**
-- Write the calculation function in a /utils folder as a separate file
+- Write the calculation function in utils/ as a separate file
 - Test logic with hardcoded numbers first — verify it is correct independently
 - Only connect to UI inputs after the logic is confirmed working
 
@@ -217,25 +231,27 @@ A tool is COMPLETE and ready to deploy only when ALL of these are true:
 ```
 financetools/
 ├── app/
-│   ├── layout.js                     <- Root layout, header + footer
-│   ├── page.js                       <- Homepage / Dashboard
-│   └── job-switch-calculator/
-│       └── page.js                   <- Tool 1.1
+│   ├── layout.js                          <- Root layout, header + footer
+│   ├── page.js                            <- Homepage / Dashboard
+│   ├── globals.css                        <- Global styles
+│   ├── job-switch-calculator/
+│   │   └── page.js                        <- Tool 1.1 (LIVE)
+│   └── tax-regime-comparator/
+│       └── page.js                        <- Tool 1.2 (NEXT)
 ├── components/
 │   ├── layout/
-│   │   ├── Header.js
-│   │   └── Footer.js
+│   │   ├── Header.js                      <- Sticky nav header
+│   │   └── Footer.js                      <- Site footer
 │   └── ui/
-│       ├── Button.js
-│       └── Card.js
+│       └── CalculatorInput.js             <- Reusable input wrapper
 ├── utils/
-│   └── jobSwitchCalculator.js        <- Pure calculation logic
+│   └── jobSwitchCalculator.js             <- Tool 1.1 calculation logic
 ├── constants/
-│   └── cityIndex.js                  <- Cost of living data
+│   └── cityIndex.js                       <- Cost of living data
 ├── public/
-├── .env.local                        <- Never commit this
-├── .env.example                      <- Commit this as template
-├── PROJECT.md                        <- This file
+├── .env.local                             <- Never commit this
+├── .env.example                           <- Commit this as template
+├── PROJECT.md                             <- This file
 └── README.md
 ```
 
@@ -257,12 +273,12 @@ financetools/
 1. Save this file as PROJECT.md in the root of your financetools project folder
 2. Keep it open whenever you are working on the project
 3. At the start of every Claude session — paste this entire document and say "here is my project document, continuing from where I left off"
-4. After every working session — ask Claude "update my project document with today's decisions and progress" and replace this file with the updated version
+4. After every working session — ask Claude to update PROJECT.md and replace the file
 5. When confused about what to do next — read Section 6 (Next 3 Actions). That is always your answer
 6. When a new idea comes up — add it to Section 7 (Parking Lot). Do not act on it immediately
 7. When starting any new tool — go to Section 9 (Tool Build Template) and follow Step 1 first, nothing else
 
 ---
 
-*This document was created based on planning discussions in April 2026.*
-*Update the Last Updated date every time this document is revised.*
+*Last Updated: April 2026*
+*Update this date every time the document is revised.*

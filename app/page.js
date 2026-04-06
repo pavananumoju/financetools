@@ -53,86 +53,81 @@ export default function HomePage() {
     <main>
 
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-16">
-        <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-xs font-medium text-indigo-600 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-indigo-600"></span>
-            Built for Indian tech professionals
-          </div>
-          <h1 className="text-5xl font-bold text-slate-900 leading-tight tracking-tight mb-6">
-            The real number,<br />
-            not the <span className="text-indigo-600">headline</span> number.
-          </h1>
-          <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl">
-            Financial decision tools that show what other calculators hide — purchasing power, real hikes, break-even salaries. No clutter, no ads.
-          </p>
-          <div className="flex gap-3">
-            <Link
-              href="/job-switch-calculator"
-              className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
-            >
-              Try Salary Checker
-            </Link>
-            <button className="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-indigo-200 hover:text-indigo-600 transition-colors">
-              Join Newsletter
-            </button>
+      <section className="bg-slate-100 border-b border-slate-200">
+        <div className="mx-auto max-w-6xl px-6 pt-20 pb-16">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-xs font-medium text-indigo-600 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-indigo-600"></span>
+              Built for Indian tech professionals
+            </div>
+            <h1 className="text-5xl font-bold text-slate-900 leading-tight tracking-tight mb-6">
+              The real number,<br />
+              not the <span className="text-indigo-600">headline</span> number.
+            </h1>
+            <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl">
+              Financial decision tools that show what other calculators hide — purchasing power, real hikes, break-even salaries. No clutter, no ads.
+            </p>
+            <div className="flex gap-3">
+              <Link
+                href="/job-switch-calculator"
+                className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
+              >
+                Try Salary Checker
+              </Link>
+              <button className="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-indigo-200 hover:text-indigo-600 transition-colors">
+                Join Newsletter
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Tools Grid */}
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-slate-900">Financial Tools</h2>
-          <p className="mt-1 text-sm text-slate-500">Each tool shows one insight no other Indian finance site shows.</p>
-        </div>
+      <section className="bg-slate-100 py-16 px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-900">Financial Tools</h2>
+            <p className="mt-1 text-sm text-slate-500">Each tool shows one insight no other Indian finance site shows.</p>
+          </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {tools.map((tool) => (
-            <div
-              key={tool.title}
-              className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all ${
-                tool.active
-                  ? 'hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/5 cursor-pointer'
-                  : 'opacity-70'
-              }`}
-            >
-              {/* Icon */}
-              <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${tool.iconBg}`}>
-                {tool.icon}
-              </div>
-
-              {/* Tag */}
-              <span className={`self-start rounded-full px-2.5 py-0.5 text-xs font-semibold mb-3 ${tool.tagColor}`}>
-                {tool.tag}
-              </span>
-
-              <h3 className="text-base font-bold text-slate-900 mb-2">{tool.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed flex-grow">{tool.description}</p>
-
-              {/* Unique insight */}
-              <div className="mt-4 pt-4 border-t border-slate-100">
-                <p className="text-xs text-indigo-600 font-medium">{tool.uniqueInsight}</p>
-              </div>
-
-              {/* Hover arrow — only on active */}
-              {tool.active && (
-                <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Open Tool <ArrowRight size={13} />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {tools.map((tool) => (
+              <div
+                key={tool.title}
+                className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all ${
+                  tool.active
+                    ? 'hover:border-indigo-300 hover:shadow-md cursor-pointer'
+                    : 'opacity-70'
+                }`}
+              >
+                <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${tool.iconBg}`}>
+                  {tool.icon}
                 </div>
-              )}
-
-              {tool.active && (
-                <Link href={tool.href} className="absolute inset-0 rounded-2xl" aria-label={tool.title} />
-              )}
-            </div>
-          ))}
+                <span className={`self-start rounded-full px-2.5 py-0.5 text-xs font-semibold mb-3 ${tool.tagColor}`}>
+                  {tool.tag}
+                </span>
+                <h3 className="text-base font-bold text-slate-900 mb-2">{tool.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed flex-grow">{tool.description}</p>
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  <p className="text-xs text-indigo-600 font-medium">{tool.uniqueInsight}</p>
+                </div>
+                {tool.active && (
+                  <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Open Tool <ArrowRight size={13} />
+                  </div>
+                )}
+                {tool.active && (
+                  <Link href={tool.href} className="absolute inset-0 rounded-2xl" aria-label={tool.title} />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Newsletter CTA */}
       <section className="mx-auto max-w-6xl px-6 pb-16">
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-sm">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-600">

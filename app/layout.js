@@ -7,7 +7,7 @@ const geist = Geist({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'FinanceTools.in — Built for Indian Tech Professionals',
-  description: 'Financial decision tools that show you the real number, not just the headline number. Salary calculators, tax comparators, and more.',
+  description: 'Financial decision tools that show you the real number, not just the headline number.',
 }
 
 export default function RootLayout({ children }) {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={`${geist.className} bg-slate-100 text-slate-900 antialiased`}>
         <Header />
         {children}
-        <Footer className="border-t border-slate-200 bg-white"/>
+        <Footer />
       </body>
     </html>
   )
