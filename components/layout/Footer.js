@@ -34,7 +34,11 @@ export default function Footer() {
                   Tax Regime Comparator
                 </Link>
               </li>
-              <li><span className="text-sm text-slate-400">Emergency Fund Calc</span></li>
+              <li>
+                <Link href="/emergency-fund-calculator" className="text-sm text-slate-500 hover:text-indigo-600 transition-colors">
+                  Emergency Fund Runway Planner
+                </Link>
+              </li>
             </ul>
           </div>
 
