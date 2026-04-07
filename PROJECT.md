@@ -1,6 +1,6 @@
 # PROJECT MASTER DOCUMENT
 ### Finance Tools Website — Indian Tech Professionals
-**Last Updated:** April 8, 2026 (Tool 2.1 in progress)
+**Last Updated:** April 8, 2026 (Tool 2.1 committed on dev)
 **Status:** Phase 2 — Active Development
 
 ---
@@ -52,11 +52,11 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 ### PHASE 2 — Investment Tools
 *Evergreen content, good affiliate potential, low maintenance.*
 
-| # | Tool | Key Unique Output |
-|---|---|---|
-| 2.1 | FD Ladder Planner | Optimal FD split for liquidity + returns | BUILT (LOCAL) |
-| 2.2 | SIP vs FD vs RD Post-Tax Comparison | Post-tax, inflation-adjusted real returns |
-| 2.3 | Goal-based SIP Calculator | Monthly investment needed to reach ₹X in Y years |
+| # | Tool | Key Unique Output | Status |
+|---|---|---|---|
+| 2.1 | FD Ladder Planner | Optimal FD split for liquidity + returns | BUILT (LOCAL), COMMITTED ON DEV |
+| 2.2 | SIP vs FD vs RD Post-Tax Comparison | Post-tax, inflation-adjusted real returns | PLANNED |
+| 2.3 | Goal-based SIP Calculator | Monthly investment needed to reach ₹X in Y years | PLANNED |
 
 ### PHASE 3 — Credit & Spending Tools
 *Highest monetization potential. Requires card data research upfront.*
@@ -80,12 +80,12 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 ```
 Phase:  2 — Active Development
-Step:   Tool 2.1 built locally. Ready for QA and merge.
-Last:   FD Ladder Planner created at /fd-ladder-planner
-        Outputs: no-break runway months, recommended FD split, corpus gap, and blended ladder rate
+Step:   Tool 2.1 committed on dev. Pending final QA and merge to main.
+Last:   FD Ladder Planner created at /fd-ladder-planner and committed on dev
+        Outputs: no-break runway months, recommended FD split, corpus gap, weighted average interest rate, and maturity estimate
         Uses staggered maturity logic to balance liquidity blocks and return optimization
         Homepage/nav/footer updated to include Tool 2.1 as live route
-Next:   Final QA for Tool 2.1, merge to main, then start Tool 2.2
+Next:   Final QA for Tool 2.1, merge to main, then start Tool 2.2 after break
 ```
 
 ---
@@ -317,5 +317,5 @@ financetools/
 
 ---
 
-*Last Updated: April 8, 2026 (Tool 2.1 in progress)*
+*Last Updated: April 8, 2026 (Tool 2.1 committed on dev)*
 *Update this date every time the document is revised.*
