@@ -1,6 +1,6 @@
 # PROJECT MASTER DOCUMENT
 ### Finance Tools Website — Indian Tech Professionals
-**Last Updated:** April 2026
+**Last Updated:** April 7, 2026
 **Status:** Phase 1 — Active Development
 
 ---
@@ -45,8 +45,8 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 | # | Tool | Key Unique Output | Status |
 |---|---|---|---|
 | 1.1 | Job Switch Salary Sanity Checker | Purchasing power gain after city cost adjustment | LIVE |
-| 1.2 | New vs Old Tax Regime Comparator | Break-even salary where new regime stops being better | NEXT |
-| 1.3 | Emergency Fund Calculator for Job Switchers | Exact months of runway needed before switching | Pending |
+| 1.2 | New vs Old Tax Regime Comparator | Slab-wise tax breakdown + monthly savings | LIVE |
+| 1.3 | Emergency Fund Calculator for Job Switchers | Exact months of runway needed before switching | NEXT |
 
 ### PHASE 2 — Investment Tools
 *Evergreen content, good affiliate potential, low maintenance.*
@@ -79,14 +79,13 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 ```
 Phase:  1 — Active Development
-Step:   Tool 1.1 complete and live. Homepage complete and live. Starting Tool 1.2.
-Last:   Homepage built with hero, tool cards, newsletter CTA, header, footer.
-        Live at https://financetools-puce.vercel.app
-        Tool 1.1 live at https://financetools-puce.vercel.app/job-switch-calculator
-Next:   Build Tool 1.2 — New vs Old Tax Regime Comparator
+Step:   Tool 1.1 and 1.2 complete and live. Starting Tool 1.3.
+Last:   UI and consistency pass completed after Tool 1.2 launch
+        Tax outputs clarified (tax before rebate + explicit 87A rebate line)
+        Newsletter UI parked behind config flag until Phase 4+
+        Homepage cards spacing improved; backgrounds standardized to clean light theme
+Next:   Build Tool 1.3 — Emergency Fund Calculator for Job Switchers
 ```
-
-*Update this every session in 2-3 lines. Nothing more.*
 
 ---
 
@@ -114,9 +113,18 @@ Next:   Build Tool 1.2 — New vs Old Tax Regime Comparator
 - ✅ Light theme chosen — professional, trusted, easier to maintain solo
 - ✅ Indigo/purple accent color — modern, distinct from typical Indian finance green/orange
 - ✅ lucide-react for icons — lightweight, consistent
-- ✅ UI changes deferred to Phase 3+ — build tools first, restyle after real user feedback
+- ✅ UI consistency polish deferred to Phase 3 — build tools first
 - ✅ Dark/light toggle deferred — adds complexity, not worth it at this stage
 - ✅ Tool cards show unique insight line — reinforces core promise on homepage
+- ✅ Tax comparator uses accordion/progressive disclosure — better UX than flat form
+- ✅ 80C shown as individual item checklist with running total and progress bar
+- ✅ Slab-wise tax breakdown shown as collapsible detail — transparent math
+- ✅ Monthly savings shown alongside annual — more relatable for salaried users
+- ✅ 80TTA savings interest assumed at max ₹10,000 — not worth confusing user
+- ✅ Tax optimization suggestions (unused limits) deferred to Phase 3 with affiliate links
+- ✅ Background consistency (newsletter/footer gray) deferred — not blocking tool builds
+- ✅ Newsletter UI is parked/hidden until Phase 4+ (controlled by constants/siteConfig.js)
+- ✅ Light UI refresh done now (card density, route background consistency) without full redesign
 
 ---
 
@@ -128,9 +136,10 @@ Next:   Build Tool 1.2 — New vs Old Tax Regime Comparator
 - [x] Action 2: Vercel connected — https://financetools-puce.vercel.app
 - [x] Action 3: Tool 1.1 live at /job-switch-calculator
 - [x] Action 4: Homepage built and live
-- [ ] **Action 5:** Start Tool 1.2 — create app/tax-regime-comparator/page.js, verify it loads at the correct URL
-- [ ] **Action 6:** Complete Tool 1.2 following Section 9 build template Steps 1-8
-- [ ] **Action 7:** Update homepage header and tool cards when Tool 1.2 is live
+- [x] Action 5: Tool 1.2 live at /tax-regime-comparator
+- [ ] **Action 6:** Start Tool 1.3 — create app/emergency-fund-calculator/page.js, verify it loads
+- [ ] **Action 7:** Complete Tool 1.3 following Section 9 build template Steps 1-8
+- [ ] **Action 8:** All Phase 1 tools live — apply for Zerodha and Groww affiliates
 
 ---
 
@@ -148,9 +157,11 @@ Next:   Build Tool 1.2 — New vs Old Tax Regime Comparator
 - Credit card affiliate direct tie-ups — after Phase 3
 - Sponsored placements — only after meaningful traffic
 - Dark/light theme toggle — Phase 3+ after tools are established
-- UI restyling / redesign — Phase 3+ after real user feedback
+- Full homepage/footer UI consistency polish — Phase 3+
+- Tax optimization suggestions with affiliate links — Phase 3+ (show unused deduction limits, link to Zerodha NPS, Ditto insurance, Groww ELSS)
 - Framer Motion animations — low priority, adds bundle size
 - Switch to Cursor IDE — when codebase grows and sweeping changes are needed
+- Tax regime tool accuracy refinement — revisit after reading latest budget articles
 
 ---
 
@@ -178,7 +189,7 @@ Next:   Build Tool 1.2 — New vs Old Tax Regime Comparator
 *Follow this exact sequence for every single tool. No skipping steps.*
 
 **STEP 1 — Page Setup**
-- Create new page file (e.g. app/tax-regime-comparator/page.js)
+- Create new page file (e.g. app/emergency-fund-calculator/page.js)
 - Add basic layout — page title and one-line description of what the tool does
 - Verify the page loads at the correct URL before touching any logic
 
@@ -236,8 +247,10 @@ financetools/
 │   ├── globals.css                        <- Global styles
 │   ├── job-switch-calculator/
 │   │   └── page.js                        <- Tool 1.1 (LIVE)
-│   └── tax-regime-comparator/
-│       └── page.js                        <- Tool 1.2 (NEXT)
+│   ├── tax-regime-comparator/
+│   │   └── page.js                        <- Tool 1.2 (LIVE)
+│   └── emergency-fund-calculator/
+│       └── page.js                        <- Tool 1.3 (NEXT)
 ├── components/
 │   ├── layout/
 │   │   ├── Header.js                      <- Sticky nav header
@@ -245,9 +258,12 @@ financetools/
 │   └── ui/
 │       └── CalculatorInput.js             <- Reusable input wrapper
 ├── utils/
-│   └── jobSwitchCalculator.js             <- Tool 1.1 calculation logic
+│   ├── jobSwitchCalculator.js             <- Tool 1.1 calculation logic
+│   └── taxRegimeCalculator.js             <- Tool 1.2 calculation logic
 ├── constants/
-│   └── cityIndex.js                       <- Cost of living data
+│   ├── cityIndex.js                       <- Cost of living data
+│   ├── taxConfig.js                       <- Tax slabs, deductions config
+│   └── siteConfig.js                      <- UI feature toggles (newsletter visibility)
 ├── public/
 ├── .env.local                             <- Never commit this
 ├── .env.example                           <- Commit this as template
@@ -280,5 +296,5 @@ financetools/
 
 ---
 
-*Last Updated: April 2026*
+*Last Updated: April 7, 2026*
 *Update this date every time the document is revised.*

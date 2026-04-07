@@ -94,7 +94,7 @@ export default function TaxRegimeComparatorPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-10">
+    <main className="min-h-screen bg-white px-4 py-10">
       <div className="mx-auto max-w-2xl">
 
         {/* Header */}
@@ -416,7 +416,7 @@ export default function TaxRegimeComparatorPage() {
                 <div className="flex flex-col gap-1.5 text-xs bg-slate-50 rounded-xl p-3">
                   <div className="flex justify-between text-slate-500">
                     <span>Tax on slabs</span>
-                    <span className="font-medium text-slate-700">₹{fmt(results.newRegime.taxOnSlabs)}</span>
+                    <span className="font-medium text-slate-700">₹{fmt(results.newRegime.taxBeforeRebate)}</span>
                   </div>
 
                   {/* Slab breakdown toggle */}
@@ -435,6 +435,13 @@ export default function TaxRegimeComparatorPage() {
                           <span>₹{fmt(s.tax)}</span>
                         </div>
                       ))}
+                    </div>
+                  )}
+
+                  {results.newRegime.rebate > 0 && (
+                    <div className="flex justify-between text-slate-500">
+                      <span>− Rebate (87A)</span>
+                      <span className="font-medium text-emerald-600">−₹{fmt(results.newRegime.rebate)}</span>
                     </div>
                   )}
 
@@ -486,7 +493,7 @@ export default function TaxRegimeComparatorPage() {
                 <div className="flex flex-col gap-1.5 text-xs bg-slate-50 rounded-xl p-3">
                   <div className="flex justify-between text-slate-500">
                     <span>Tax on slabs</span>
-                    <span className="font-medium text-slate-700">₹{fmt(results.oldRegime.taxOnSlabs)}</span>
+                    <span className="font-medium text-slate-700">₹{fmt(results.oldRegime.taxBeforeRebate)}</span>
                   </div>
 
                   <button
@@ -504,6 +511,13 @@ export default function TaxRegimeComparatorPage() {
                           <span>₹{fmt(s.tax)}</span>
                         </div>
                       ))}
+                    </div>
+                  )}
+
+                  {results.oldRegime.rebate > 0 && (
+                    <div className="flex justify-between text-slate-500">
+                      <span>− Rebate (87A)</span>
+                      <span className="font-medium text-emerald-600">−₹{fmt(results.oldRegime.rebate)}</span>
                     </div>
                   )}
 

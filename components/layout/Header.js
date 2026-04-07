@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SHOW_NEWSLETTER } from '@/constants/siteConfig'
 
 export default function Header() {
   return (
@@ -18,17 +19,19 @@ export default function Header() {
           <Link href="/job-switch-calculator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
             Salary Checker
           </Link>
-          <span className="text-sm text-slate-400 cursor-not-allowed">
+          <Link href="/tax-regime-comparator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
             Tax Comparator
-          </span>
+          </Link>
           <span className="text-sm text-slate-400 cursor-not-allowed">
             Emergency Fund
           </span>
         </nav>
 
-        <button className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition-colors">
-          Newsletter
-        </button>
+        {SHOW_NEWSLETTER && (
+          <button className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition-colors">
+            Newsletter
+          </button>
+        )}
 
       </div>
     </header>

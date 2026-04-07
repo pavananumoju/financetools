@@ -80,8 +80,9 @@ export function calculateTaxRegimes({
 
   // --- NEW REGIME ---
   const newTaxableIncome = Math.max(0, salary - NEW_REGIME_STANDARD_DEDUCTION)
-  const { tax: newTaxOnSlabs, breakdown: newSlabBreakdown } = calculateSlabTax(newTaxableIncome, NEW_REGIME_SLABS)
-  const newTaxAfterRebate = applyRebate(newTaxOnSlabs, newTaxableIncome, NEW_REGIME_REBATE_LIMIT, NEW_REGIME_REBATE_MAX)
+  const { tax: newTaxBeforeRebate, breakdown: newSlabBreakdown } = calculateSlabTax(newTaxableIncome, NEW_REGIME_SLABS)
+  const newTaxAfterRebate = applyRebate(newTaxBeforeRebate, newTaxableIncome, NEW_REGIME_REBATE_LIMIT, NEW_REGIME_REBATE_MAX)
+  const newRebate = newTaxBeforeRebate - newTaxAfterRebate
   const newCess = Math.round(newTaxAfterRebate * CESS_RATE)
   const newTotalTax = newTaxAfterRebate + newCess
 
@@ -107,8 +108,9 @@ export function calculateTaxRegimes({
 
   const totalOldDeductions = deductionBreakdown.reduce((sum, d) => sum + d.amount, 0)
   const oldTaxableIncome = Math.max(0, salary - totalOldDeductions)
-  const { tax: oldTaxOnSlabs, breakdown: oldSlabBreakdown } = calculateSlabTax(oldTaxableIncome, OLD_REGIME_SLABS)
-  const oldTaxAfterRebate = applyRebate(oldTaxOnSlabs, oldTaxableIncome, OLD_REGIME_REBATE_LIMIT, OLD_REGIME_REBATE_MAX)
+  const { tax: oldTaxBeforeRebate, breakdown: oldSlabBreakdown } = calculateSlabTax(oldTaxableIncome, OLD_REGIME_SLABS)
+  const oldTaxAfterRebate = applyRebate(oldTaxBeforeRebate, oldTaxableIncome, OLD_REGIME_REBATE_LIMIT, OLD_REGIME_REBATE_MAX)
+  const oldRebate = oldTaxBeforeRebate - oldTaxAfterRebate
   const oldCess = Math.round(oldTaxAfterRebate * CESS_RATE)
   const oldTotalTax = oldTaxAfterRebate + oldCess
 
@@ -134,6 +136,8 @@ export function calculateTaxRegimes({
     newRegime: {
       standardDeduction: NEW_REGIME_STANDARD_DEDUCTION,
       taxableIncome: newTaxableIncome,
+      taxBeforeRebate: newTaxBeforeRebate,
+      rebate: newRebate,
       taxOnSlabs: newTaxAfterRebate,
       slabBreakdown: newSlabBreakdown,
       cess: newCess,
@@ -143,6 +147,8 @@ export function calculateTaxRegimes({
       deductionBreakdown,
       totalDeductions: totalOldDeductions,
       taxableIncome: oldTaxableIncome,
+      taxBeforeRebate: oldTaxBeforeRebate,
+      rebate: oldRebate,
       taxOnSlabs: oldTaxAfterRebate,
       slabBreakdown: oldSlabBreakdown,
       cess: oldCess,

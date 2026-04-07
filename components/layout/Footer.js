@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import { SHOW_NEWSLETTER } from '@/constants/siteConfig'
 
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white mt-20">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className={`grid grid-cols-1 gap-8 ${SHOW_NEWSLETTER ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
           
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -28,19 +29,25 @@ export default function Footer() {
                   Salary Sanity Checker
                 </Link>
               </li>
-              <li><span className="text-sm text-slate-400">Tax Regime Comparator</span></li>
+              <li>
+                <Link href="/tax-regime-comparator" className="text-sm text-slate-500 hover:text-indigo-600 transition-colors">
+                  Tax Regime Comparator
+                </Link>
+              </li>
               <li><span className="text-sm text-slate-400">Emergency Fund Calc</span></li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Connect</h3>
-            <ul className="space-y-2">
-              <li><span className="text-sm text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">Newsletter</span></li>
-              <li><span className="text-sm text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">Twitter / X</span></li>
-              <li><span className="text-sm text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">LinkedIn</span></li>
-            </ul>
-          </div>
+          {SHOW_NEWSLETTER && (
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900 mb-4">Connect</h3>
+              <ul className="space-y-2">
+                <li><span className="text-sm text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">Newsletter</span></li>
+                <li><span className="text-sm text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">Twitter / X</span></li>
+                <li><span className="text-sm text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">LinkedIn</span></li>
+              </ul>
+            </div>
+          )}
 
         </div>
 

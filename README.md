@@ -4,7 +4,7 @@ Built to give the real number, not just the headline number.
 
 ## Project Status
 Phase 1 — In Development
-Current: Foundation setup complete. Building Job Switch Salary Sanity Checker.
+Current: Tool 1.1 (Job Switch Salary Sanity Checker) and Tool 1.2 (Tax Regime Comparator) are live. Next up: Tool 1.3 Emergency Fund Calculator.
 
 ## Tech Stack
 - Framework: Next.js (App Router, JavaScript)
