@@ -1,7 +1,7 @@
 # PROJECT MASTER DOCUMENT
 ### Finance Tools Website — Indian Tech Professionals
-**Last Updated:** April 8, 2026 (Tool 1.4 in progress)
-**Status:** Phase 1 — Active Development
+**Last Updated:** April 8, 2026 (Tool 2.1 in progress)
+**Status:** Phase 2 — Active Development
 
 ---
 
@@ -54,7 +54,7 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 | # | Tool | Key Unique Output |
 |---|---|---|
-| 2.1 | FD Ladder Planner | Optimal FD split for liquidity + returns |
+| 2.1 | FD Ladder Planner | Optimal FD split for liquidity + returns | BUILT (LOCAL) |
 | 2.2 | SIP vs FD vs RD Post-Tax Comparison | Post-tax, inflation-adjusted real returns |
 | 2.3 | Goal-based SIP Calculator | Monthly investment needed to reach ₹X in Y years |
 
@@ -79,13 +79,13 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 ## 4. CURRENT STATUS
 
 ```
-Phase:  1 — Active Development
-Step:   Tool 1.4 built locally. Ready for QA and merge.
-Last:   Job Offer True Value Calculator created at /job-offer-true-value-calculator
-        Outputs: guaranteed monthly change, realistic monthly value, and component breakdown
-        Separates fixed pay, variable payout risk, one-time payouts, and benefits into monthly equivalents
-        Homepage/nav/footer updated to include Tool 1.4 as live route
-Next:   Final QA for Tool 1.4, merge to main, then move to Phase 2 tools
+Phase:  2 — Active Development
+Step:   Tool 2.1 built locally. Ready for QA and merge.
+Last:   FD Ladder Planner created at /fd-ladder-planner
+        Outputs: no-break runway months, recommended FD split, corpus gap, and blended ladder rate
+        Uses staggered maturity logic to balance liquidity blocks and return optimization
+        Homepage/nav/footer updated to include Tool 2.1 as live route
+Next:   Final QA for Tool 2.1, merge to main, then start Tool 2.2
 ```
 
 ---
@@ -131,6 +131,7 @@ Next:   Final QA for Tool 1.4, merge to main, then move to Phase 2 tools
 - ✅ Tool 1.3 lifestyle expense field explicitly marked as monthly to reduce confusion
 - ✅ Tool 1.4 focuses on monthly cash-flow reality, not headline CTC
 - ✅ Tool 1.4 estimates offered in-hand using current effective take-home ratio (current in-hand vs current annual pay)
+- ✅ Tool 2.1 FD Ladder Planner uses staggered maturities + surplus long-tenure bucket for liquidity-return balance
 
 ---
 
@@ -146,8 +147,10 @@ Next:   Final QA for Tool 1.4, merge to main, then move to Phase 2 tools
 - [x] Action 6: Start Tool 1.3 — create app/emergency-fund-calculator/page.js, verify it loads
 - [x] Action 7: Complete Tool 1.3 QA + final verification, then ship
 - [x] Action 8: Build Tool 1.4 and wire route/home/nav/footer
-- [ ] **Action 9:** Complete Tool 1.4 QA + deploy to main
-- [ ] **Action 10:** Start Phase 2 Tool 2.1 (FD Ladder Planner)
+- [x] Action 9: Complete Tool 1.4 QA + deploy to main
+- [x] Action 10: Start Phase 2 Tool 2.1 (FD Ladder Planner)
+- [ ] **Action 11:** Complete Tool 2.1 QA + deploy to main
+- [ ] **Action 12:** Start Tool 2.2 (SIP vs FD vs RD Post-Tax Comparison)
 
 ---
 
@@ -261,6 +264,8 @@ financetools/
 │   │   └── page.js                        <- Tool 1.3 (LIVE)
 │   └── job-offer-true-value-calculator/
 │       └── page.js                        <- Tool 1.4 (LOCAL)
+│   └── fd-ladder-planner/
+│       └── page.js                        <- Tool 2.1 (LOCAL)
 ├── components/
 │   ├── layout/
 │   │   ├── Header.js                      <- Sticky nav header
@@ -271,12 +276,14 @@ financetools/
 │   ├── jobSwitchCalculator.js             <- Tool 1.1 calculation logic
 │   ├── taxRegimeCalculator.js             <- Tool 1.2 calculation logic
 │   ├── emergencyFundCalculator.js         <- Tool 1.3 runway logic
-│   └── jobOfferCalculator.js              <- Tool 1.4 offer-value logic
+│   ├── jobOfferCalculator.js              <- Tool 1.4 offer-value logic
+│   └── fdLadderCalculator.js              <- Tool 2.1 ladder split logic
 ├── constants/
 │   ├── cityIndex.js                       <- Cost of living data
 │   ├── taxConfig.js                       <- Tax slabs, deductions config
 │   ├── emergencyFundConfig.js             <- Tool 1.3 profile/risk config
 │   ├── jobOfferConfig.js                  <- Tool 1.4 UI options/config
+│   ├── fdLadderConfig.js                  <- Tool 2.1 rate and tenure config
 │   └── siteConfig.js                      <- UI feature toggles (newsletter visibility)
 ├── public/
 ├── .env.local                             <- Never commit this
@@ -310,5 +317,5 @@ financetools/
 
 ---
 
-*Last Updated: April 8, 2026*
+*Last Updated: April 8, 2026 (Tool 2.1 in progress)*
 *Update this date every time the document is revised.*

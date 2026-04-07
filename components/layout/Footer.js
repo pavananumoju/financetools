@@ -44,6 +44,11 @@ export default function Footer() {
                   Job Offer True Value Calculator
                 </Link>
               </li>
+              <li>
+                <Link href="/fd-ladder-planner" className="text-sm text-slate-500 hover:text-indigo-600 transition-colors">
+                  FD Ladder Planner
+                </Link>
+              </li>
             </ul>
           </div>
 

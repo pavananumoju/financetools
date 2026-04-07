@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Calculator, TrendingUp, CreditCard, ShieldCheck, ArrowRight, Mail, Briefcase } from 'lucide-react'
+import { Calculator, TrendingUp, CreditCard, ShieldCheck, ArrowRight, Mail, Briefcase, Landmark } from 'lucide-react'
 import { SHOW_NEWSLETTER } from '@/constants/siteConfig'
 
 const tools = [
@@ -45,6 +45,17 @@ const tools = [
     tagColor: 'bg-indigo-100 text-indigo-700',
     iconBg: 'bg-indigo-50 group-hover:bg-indigo-100',
     icon: <ShieldCheck size={20} className="text-indigo-600" />,
+    active: true,
+  },
+  {
+    title: 'FD Ladder Planner',
+    description: 'Split your FD amount across staggered maturities for liquidity and better blended returns.',
+    uniqueInsight: 'Shows no-break runway months from FD ladder structure',
+    href: '/fd-ladder-planner',
+    tag: 'Live',
+    tagColor: 'bg-indigo-100 text-indigo-700',
+    iconBg: 'bg-indigo-50 group-hover:bg-indigo-100',
+    icon: <Landmark size={20} className="text-indigo-600" />,
     active: true,
   },
   {

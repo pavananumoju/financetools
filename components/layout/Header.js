@@ -28,6 +28,9 @@ export default function Header() {
           <Link href="/job-offer-true-value-calculator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
             Offer Value
           </Link>
+          <Link href="/fd-ladder-planner" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
+            FD Ladder
+          </Link>
         </nav>
 
         {SHOW_NEWSLETTER && (
