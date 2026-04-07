@@ -42,7 +42,7 @@ export default function JobOfferTrueValueCalculatorPage() {
       return
     }
     if (!currentAnnualFixedPay || Number(currentAnnualFixedPay) <= 0) {
-      setError('Please enter your current annual fixed pay to estimate in-hand accurately.')
+      setError('Enter your current annual CTC or fixed pay — used to estimate your tax + deductions ratio.')
       return
     }
     if (variableAnnualTarget && Number(variableAnnualTarget) < 0) {
@@ -190,6 +190,14 @@ export default function JobOfferTrueValueCalculatorPage() {
               </p>
             </div>
 
+            <div className={`rounded-2xl border p-5 ${results.isGuaranteedDrop ? 'border-amber-200 bg-amber-50' : 'border-emerald-200 bg-emerald-50'}`}>
+              <p className={`text-sm font-semibold ${results.isGuaranteedDrop ? 'text-amber-800' : 'text-emerald-800'}`}>
+                {results.isGuaranteedDrop
+                  ? `Your guaranteed monthly drops by ₹${fmt(results.guaranteedMonthlyGain)}. You are depending on variable/one-time payouts to break even.`
+                  : `Your guaranteed monthly is ₹${fmt(results.guaranteedMonthlyGain)} higher. Even at zero variable payout, this offer improves monthly stability.`}
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-200 bg-white p-5">
                 <p className="text-xs text-slate-500 mb-1">Realistic monthly value</p>
@@ -232,7 +240,7 @@ export default function JobOfferTrueValueCalculatorPage() {
             <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-5">
               <p className="text-sm font-semibold text-indigo-900 mb-2">Reality check</p>
               <p className="text-sm text-indigo-800 leading-relaxed">
-                Your headline annual offer is ₹{fmt(results.headlineAnnualOffer)}, but estimated monthly in-hand is based on your current effective take-home ratio ({results.takeHomeRatioPercent}%).
+                Your headline annual offer is ₹{fmt(results.headlineAnnualOffer)} (fixed + variable target + one-time + benefits), but estimated monthly in-hand is based on your current effective take-home ratio ({results.takeHomeRatioPercent}%).
                 This gives a more realistic monthly comparison than raw CTC math.
               </p>
             </div>

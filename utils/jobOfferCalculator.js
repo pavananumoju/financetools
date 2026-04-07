@@ -34,7 +34,7 @@ export function calculateJobOfferTrueValue({
   const guaranteedMonthly = guaranteedMonthlyGross * takeHomeRatio
   const expectedVariableMonthly = expectedVariableMonthlyGross * takeHomeRatio
   const oneTimeMonthlyEquivalent = oneTimeMonthlyEquivalentGross * takeHomeRatio
-  const benefitsMonthly = benefitsMonthlyGross * takeHomeRatio
+  const benefitsMonthly = benefitsMonthlyGross
 
   const trueMonthlyValue =
     guaranteedMonthly +
