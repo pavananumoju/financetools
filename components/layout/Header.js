@@ -25,6 +25,9 @@ export default function Header() {
           <Link href="/emergency-fund-calculator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
             Emergency Fund
           </Link>
+          <Link href="/job-offer-true-value-calculator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
+            Offer Value
+          </Link>
         </nav>
 
         {SHOW_NEWSLETTER && (

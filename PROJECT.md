@@ -1,6 +1,6 @@
 # PROJECT MASTER DOCUMENT
 ### Finance Tools Website — Indian Tech Professionals
-**Last Updated:** April 7, 2026
+**Last Updated:** April 8, 2026 (Tool 1.4 in progress)
 **Status:** Phase 1 — Active Development
 
 ---
@@ -46,8 +46,8 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 |---|---|---|---|
 | 1.1 | Job Switch Salary Sanity Checker | Purchasing power gain after city cost adjustment | LIVE |
 | 1.2 | New vs Old Tax Regime Comparator | Slab-wise tax breakdown + monthly savings | LIVE |
-| 1.3 | Emergency Fund Calculator for Job Switchers | Earliest safe switch month + exact runway gap | BUILT (LOCAL) |
-| 1.4 | Job Offer True Value Calculator | Real recurring monthly in-hand excluding variable/one-time components | PLANNED |
+| 1.3 | Emergency Fund Calculator for Job Switchers | Earliest safe switch month + exact runway gap | LIVE |
+| 1.4 | Job Offer True Value Calculator | Guaranteed monthly value vs risky/one-time components | BUILT (LOCAL) |
 
 ### PHASE 2 — Investment Tools
 *Evergreen content, good affiliate potential, low maintenance.*
@@ -80,12 +80,12 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 ```
 Phase:  1 — Active Development
-Step:   Tool 1.3 built locally. Ready for final QA and deploy.
-Last:   Emergency Fund Runway Planner created at /emergency-fund-calculator
-        Inputs: expenses, liquid savings, monthly savings capacity, risk profile, optional inflows
-        Outputs: safe switch status, earliest safe switch month, runway target, savings gap
-        Homepage/nav/footer updated to include Tool 1.3 as live route
-Next:   Final QA (desktop/mobile, manual test values) and deploy Tool 1.3
+Step:   Tool 1.4 built locally. Ready for QA and merge.
+Last:   Job Offer True Value Calculator created at /job-offer-true-value-calculator
+        Outputs: guaranteed monthly change, realistic monthly value, and component breakdown
+        Separates fixed pay, variable payout risk, one-time payouts, and benefits into monthly equivalents
+        Homepage/nav/footer updated to include Tool 1.4 as live route
+Next:   Final QA for Tool 1.4, merge to main, then move to Phase 2 tools
 ```
 
 ---
@@ -127,6 +127,10 @@ Next:   Final QA (desktop/mobile, manual test values) and deploy Tool 1.3
 - ✅ Background consistency (newsletter/footer gray) deferred — not blocking tool builds
 - ✅ Newsletter UI is parked/hidden until Phase 4+ (controlled by constants/siteConfig.js)
 - ✅ Light UI refresh done now (card density, route background consistency) without full redesign
+- ✅ Number inputs no longer change on trackpad/wheel scroll across calculator pages
+- ✅ Tool 1.3 lifestyle expense field explicitly marked as monthly to reduce confusion
+- ✅ Tool 1.4 focuses on monthly cash-flow reality, not headline CTC
+- ✅ Tool 1.4 estimates offered in-hand using current effective take-home ratio (current in-hand vs current annual pay)
 
 ---
 
@@ -140,8 +144,10 @@ Next:   Final QA (desktop/mobile, manual test values) and deploy Tool 1.3
 - [x] Action 4: Homepage built and live
 - [x] Action 5: Tool 1.2 live at /tax-regime-comparator
 - [x] Action 6: Start Tool 1.3 — create app/emergency-fund-calculator/page.js, verify it loads
-- [ ] **Action 7:** Complete Tool 1.3 QA + final verification, then ship
-- [ ] **Action 8:** All Phase 1 tools live — apply for Zerodha and Groww affiliates
+- [x] Action 7: Complete Tool 1.3 QA + final verification, then ship
+- [x] Action 8: Build Tool 1.4 and wire route/home/nav/footer
+- [ ] **Action 9:** Complete Tool 1.4 QA + deploy to main
+- [ ] **Action 10:** Start Phase 2 Tool 2.1 (FD Ladder Planner)
 
 ---
 
@@ -251,8 +257,10 @@ financetools/
 │   │   └── page.js                        <- Tool 1.1 (LIVE)
 │   ├── tax-regime-comparator/
 │   │   └── page.js                        <- Tool 1.2 (LIVE)
-│   └── emergency-fund-calculator/
-│       └── page.js                        <- Tool 1.3 (NEXT)
+│   ├── emergency-fund-calculator/
+│   │   └── page.js                        <- Tool 1.3 (LIVE)
+│   └── job-offer-true-value-calculator/
+│       └── page.js                        <- Tool 1.4 (LOCAL)
 ├── components/
 │   ├── layout/
 │   │   ├── Header.js                      <- Sticky nav header
@@ -262,11 +270,13 @@ financetools/
 ├── utils/
 │   ├── jobSwitchCalculator.js             <- Tool 1.1 calculation logic
 │   ├── taxRegimeCalculator.js             <- Tool 1.2 calculation logic
-│   └── emergencyFundCalculator.js         <- Tool 1.3 runway logic
+│   ├── emergencyFundCalculator.js         <- Tool 1.3 runway logic
+│   └── jobOfferCalculator.js              <- Tool 1.4 offer-value logic
 ├── constants/
 │   ├── cityIndex.js                       <- Cost of living data
 │   ├── taxConfig.js                       <- Tax slabs, deductions config
 │   ├── emergencyFundConfig.js             <- Tool 1.3 profile/risk config
+│   ├── jobOfferConfig.js                  <- Tool 1.4 UI options/config
 │   └── siteConfig.js                      <- UI feature toggles (newsletter visibility)
 ├── public/
 ├── .env.local                             <- Never commit this
@@ -300,5 +310,5 @@ financetools/
 
 ---
 
-*Last Updated: April 7, 2026*
+*Last Updated: April 8, 2026*
 *Update this date every time the document is revised.*
