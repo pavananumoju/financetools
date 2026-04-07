@@ -46,7 +46,8 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 |---|---|---|---|
 | 1.1 | Job Switch Salary Sanity Checker | Purchasing power gain after city cost adjustment | LIVE |
 | 1.2 | New vs Old Tax Regime Comparator | Slab-wise tax breakdown + monthly savings | LIVE |
-| 1.3 | Emergency Fund Calculator for Job Switchers | Exact months of runway needed before switching | NEXT |
+| 1.3 | Emergency Fund Calculator for Job Switchers | Earliest safe switch month + exact runway gap | BUILT (LOCAL) |
+| 1.4 | Job Offer True Value Calculator | Real recurring monthly in-hand excluding variable/one-time components | PLANNED |
 
 ### PHASE 2 — Investment Tools
 *Evergreen content, good affiliate potential, low maintenance.*
@@ -79,12 +80,12 @@ A brand and platform built for Indian salaried tech professionals navigating a w
 
 ```
 Phase:  1 — Active Development
-Step:   Tool 1.1 and 1.2 complete and live. Starting Tool 1.3.
-Last:   UI and consistency pass completed after Tool 1.2 launch
-        Tax outputs clarified (tax before rebate + explicit 87A rebate line)
-        Newsletter UI parked behind config flag until Phase 4+
-        Homepage cards spacing improved; backgrounds standardized to clean light theme
-Next:   Build Tool 1.3 — Emergency Fund Calculator for Job Switchers
+Step:   Tool 1.3 built locally. Ready for final QA and deploy.
+Last:   Emergency Fund Runway Planner created at /emergency-fund-calculator
+        Inputs: expenses, liquid savings, monthly savings capacity, risk profile, optional inflows
+        Outputs: safe switch status, earliest safe switch month, runway target, savings gap
+        Homepage/nav/footer updated to include Tool 1.3 as live route
+Next:   Final QA (desktop/mobile, manual test values) and deploy Tool 1.3
 ```
 
 ---
@@ -116,6 +117,7 @@ Next:   Build Tool 1.3 — Emergency Fund Calculator for Job Switchers
 - ✅ UI consistency polish deferred to Phase 3 — build tools first
 - ✅ Dark/light toggle deferred — adds complexity, not worth it at this stage
 - ✅ Tool cards show unique insight line — reinforces core promise on homepage
+- ✅ Homepage roadmap includes Job Offer True Value Calculator (planned after Tool 1.3)
 - ✅ Tax comparator uses accordion/progressive disclosure — better UX than flat form
 - ✅ 80C shown as individual item checklist with running total and progress bar
 - ✅ Slab-wise tax breakdown shown as collapsible detail — transparent math
@@ -137,8 +139,8 @@ Next:   Build Tool 1.3 — Emergency Fund Calculator for Job Switchers
 - [x] Action 3: Tool 1.1 live at /job-switch-calculator
 - [x] Action 4: Homepage built and live
 - [x] Action 5: Tool 1.2 live at /tax-regime-comparator
-- [ ] **Action 6:** Start Tool 1.3 — create app/emergency-fund-calculator/page.js, verify it loads
-- [ ] **Action 7:** Complete Tool 1.3 following Section 9 build template Steps 1-8
+- [x] Action 6: Start Tool 1.3 — create app/emergency-fund-calculator/page.js, verify it loads
+- [ ] **Action 7:** Complete Tool 1.3 QA + final verification, then ship
 - [ ] **Action 8:** All Phase 1 tools live — apply for Zerodha and Groww affiliates
 
 ---
@@ -259,10 +261,12 @@ financetools/
 │       └── CalculatorInput.js             <- Reusable input wrapper
 ├── utils/
 │   ├── jobSwitchCalculator.js             <- Tool 1.1 calculation logic
-│   └── taxRegimeCalculator.js             <- Tool 1.2 calculation logic
+│   ├── taxRegimeCalculator.js             <- Tool 1.2 calculation logic
+│   └── emergencyFundCalculator.js         <- Tool 1.3 runway logic
 ├── constants/
 │   ├── cityIndex.js                       <- Cost of living data
 │   ├── taxConfig.js                       <- Tax slabs, deductions config
+│   ├── emergencyFundConfig.js             <- Tool 1.3 profile/risk config
 │   └── siteConfig.js                      <- UI feature toggles (newsletter visibility)
 ├── public/
 ├── .env.local                             <- Never commit this

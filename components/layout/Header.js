@@ -22,9 +22,9 @@ export default function Header() {
           <Link href="/tax-regime-comparator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
             Tax Comparator
           </Link>
-          <span className="text-sm text-slate-400 cursor-not-allowed">
+          <Link href="/emergency-fund-calculator" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
             Emergency Fund
-          </span>
+          </Link>
         </nav>
 
         {SHOW_NEWSLETTER && (

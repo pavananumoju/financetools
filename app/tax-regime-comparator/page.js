@@ -37,6 +37,7 @@ export default function TaxRegimeComparatorPage() {
   const [error, setError] = useState('')
   const [showNewSlabs, setShowNewSlabs] = useState(false)
   const [showOldSlabs, setShowOldSlabs] = useState(false)
+  const preventNumberScroll = (event) => event.currentTarget.blur()
 
   const inputClass = "w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 
@@ -122,6 +123,7 @@ export default function TaxRegimeComparatorPage() {
                 placeholder="e.g. 1500000"
                 value={grossSalary}
                 onChange={e => setGrossSalary(e.target.value)}
+                onWheel={preventNumberScroll}
                 className={`${inputClass} pl-7`}
               />
             </div>
@@ -148,19 +150,19 @@ export default function TaxRegimeComparatorPage() {
               <CalculatorInput label="Basic Salary (Annual)" hint="Check your payslip — Basic is usually 40-50% of CTC">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                  <input type="number" placeholder="e.g. 600000" value={basicSalary} onChange={e => setBasicSalary(e.target.value)} className={`${inputClass} pl-7`} />
+                  <input type="number" placeholder="e.g. 600000" value={basicSalary} onChange={e => setBasicSalary(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
                 </div>
               </CalculatorInput>
               <CalculatorInput label="HRA Received (Annual)" hint="Check your payslip — look for HRA component and multiply by 12">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                  <input type="number" placeholder="e.g. 240000" value={hraReceived} onChange={e => setHraReceived(e.target.value)} className={`${inputClass} pl-7`} />
+                  <input type="number" placeholder="e.g. 240000" value={hraReceived} onChange={e => setHraReceived(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
                 </div>
               </CalculatorInput>
               <CalculatorInput label="Rent Paid (Annual)" hint="Monthly rent × 12">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                  <input type="number" placeholder="e.g. 180000" value={rentPaid} onChange={e => setRentPaid(e.target.value)} className={`${inputClass} pl-7`} />
+                  <input type="number" placeholder="e.g. 180000" value={rentPaid} onChange={e => setRentPaid(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
                 </div>
               </CalculatorInput>
               <div className="flex items-center justify-between rounded-lg bg-slate-50 px-4 py-3">
@@ -209,6 +211,7 @@ export default function TaxRegimeComparatorPage() {
                         placeholder="0"
                         value={items80c[item.id]}
                         onChange={e => handle80cChange(item.id, e.target.value)}
+                        onWheel={preventNumberScroll}
                         className={`${inputClass} pl-7`}
                       />
                     </div>
@@ -265,6 +268,7 @@ export default function TaxRegimeComparatorPage() {
                       placeholder="0"
                       value={items80d[item.id]}
                       onChange={e => handle80dChange(item.id, e.target.value)}
+                      onWheel={preventNumberScroll}
                       className={`${inputClass} pl-7`}
                     />
                   </div>
@@ -297,7 +301,7 @@ export default function TaxRegimeComparatorPage() {
               <CalculatorInput label="Additional NPS Contribution (Annual)" hint="Check your NPS account statement or payslip — max ₹50,000">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                  <input type="number" placeholder="0" value={npsAmount} onChange={e => setNpsAmount(e.target.value)} className={`${inputClass} pl-7`} />
+                  <input type="number" placeholder="0" value={npsAmount} onChange={e => setNpsAmount(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
                 </div>
               </CalculatorInput>
             </div>
@@ -327,7 +331,7 @@ export default function TaxRegimeComparatorPage() {
               <CalculatorInput label="Home Loan Interest Paid (Annual)" hint="Check your home loan statement — look for interest component in EMI breakup">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                  <input type="number" placeholder="0" value={homeLoanInterest} onChange={e => setHomeLoanInterest(e.target.value)} className={`${inputClass} pl-7`} />
+                  <input type="number" placeholder="0" value={homeLoanInterest} onChange={e => setHomeLoanInterest(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
                 </div>
               </CalculatorInput>
             </div>
