@@ -24,6 +24,7 @@ export default function EmergencyFundCalculatorPage() {
 
   const [results, setResults] = useState(null)
   const [error, setError] = useState('')
+  const preventNumberScroll = (event) => event.currentTarget.blur()
 
   const inputClass = 'w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500'
 
@@ -103,32 +104,32 @@ export default function EmergencyFundCalculatorPage() {
             <CalculatorInput label="Monthly Essential Expenses" hint="Rent/EMI, groceries, utilities, insurance, basic transport">
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                <input type="number" placeholder="e.g. 60000" value={essentialExpenses} onChange={(e) => setEssentialExpenses(e.target.value)} className={`${inputClass} pl-7`} />
+                <input type="number" placeholder="e.g. 60000" value={essentialExpenses} onChange={(e) => setEssentialExpenses(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
               </div>
             </CalculatorInput>
             <CalculatorInput label="Current Liquid Savings" hint="Cash + savings account + liquid mutual funds only">
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                <input type="number" placeholder="e.g. 300000" value={liquidSavings} onChange={(e) => setLiquidSavings(e.target.value)} className={`${inputClass} pl-7`} />
+                <input type="number" placeholder="e.g. 300000" value={liquidSavings} onChange={(e) => setLiquidSavings(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
               </div>
             </CalculatorInput>
             <CalculatorInput label="Monthly Savings Capacity" hint="How much you can add monthly before switching">
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                <input type="number" placeholder="e.g. 40000" value={monthlySavingsCapacity} onChange={(e) => setMonthlySavingsCapacity(e.target.value)} className={`${inputClass} pl-7`} />
+                <input type="number" placeholder="e.g. 40000" value={monthlySavingsCapacity} onChange={(e) => setMonthlySavingsCapacity(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
               </div>
             </CalculatorInput>
             <CalculatorInput label="Expected One-time Inflow (Optional)" hint="Bonus, severance, or arrears before switch">
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                <input type="number" placeholder="e.g. 100000" value={oneTimeInflow} onChange={(e) => setOneTimeInflow(e.target.value)} className={`${inputClass} pl-7`} />
+                <input type="number" placeholder="e.g. 100000" value={oneTimeInflow} onChange={(e) => setOneTimeInflow(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
               </div>
             </CalculatorInput>
             <div className="md:col-span-2">
               <CalculatorInput label="Current Lifestyle Expenses (Optional)" hint="Include non-essential spends to compare realistic runway vs essential runway">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
-                  <input type="number" placeholder="e.g. 90000" value={lifestyleExpenses} onChange={(e) => setLifestyleExpenses(e.target.value)} className={`${inputClass} pl-7`} />
+                  <input type="number" placeholder="e.g. 90000" value={lifestyleExpenses} onChange={(e) => setLifestyleExpenses(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
                 </div>
               </CalculatorInput>
             </div>

@@ -15,6 +15,7 @@ export default function JobSwitchCalculatorPage() {
   const inputClass = "w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 
   const [error, setError] = useState('')
+  const preventNumberScroll = (event) => event.currentTarget.blur()
 
 function handleCalculate() {
   setError('')
@@ -85,6 +86,7 @@ function handleCalculate() {
                   placeholder="e.g. 1500000"
                   value={currentCTC}
                   onChange={(e) => setCurrentCTC(e.target.value)}
+                  onWheel={preventNumberScroll}
                   className={`${inputClass} pl-7`}
                 />
               </div>
@@ -101,6 +103,7 @@ function handleCalculate() {
                   placeholder="e.g. 2200000"
                   value={newCTC}
                   onChange={(e) => setNewCTC(e.target.value)}
+                  onWheel={preventNumberScroll}
                   className={`${inputClass} pl-7`}
                 />
               </div>
