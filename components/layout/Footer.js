@@ -39,6 +39,11 @@ export default function Footer() {
                   Emergency Fund Runway Planner
                 </Link>
               </li>
+              <li>
+                <Link href="/job-offer-true-value-calculator" className="text-sm text-slate-500 hover:text-indigo-600 transition-colors">
+                  Job Offer True Value Calculator
+                </Link>
+              </li>
             </ul>
           </div>
 
