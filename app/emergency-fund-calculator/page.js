@@ -126,7 +126,7 @@ export default function EmergencyFundCalculatorPage() {
               </div>
             </CalculatorInput>
             <div className="md:col-span-2">
-              <CalculatorInput label="Current Lifestyle Expenses (Optional)" hint="Include non-essential spends to compare realistic runway vs essential runway">
+              <CalculatorInput label="Current Monthly Lifestyle Expenses (Optional)" hint="Include monthly non-essential spends to compare lifestyle runway vs essential runway">
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
                   <input type="number" placeholder="e.g. 90000" value={lifestyleExpenses} onChange={(e) => setLifestyleExpenses(e.target.value)} onWheel={preventNumberScroll} className={`${inputClass} pl-7`} />
