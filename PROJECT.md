@@ -1,6 +1,6 @@
 # PROJECT MASTER DOCUMENT
 ### Finance Tools Website — Indian Tech Professionals
-**Last Updated:** April 8, 2026 (Tool 2.1 committed on dev)
+**Last Updated:** April 8, 2026 (Tool 1.4 improvement backlog added)
 **Status:** Phase 2 — Active Development
 
 ---
@@ -86,6 +86,7 @@ Last:   FD Ladder Planner created at /fd-ladder-planner and committed on dev
         Uses staggered maturity logic to balance liquidity blocks and return optimization
         Homepage/nav/footer updated to include Tool 2.1 as live route
 Next:   Final QA for Tool 2.1, merge to main, then start Tool 2.2 after break
+Note:   Tool 1.4 enhancement ideas are intentionally parked in Section 7 for a later UX polish sprint
 ```
 
 ---
@@ -157,6 +158,27 @@ Next:   Final QA for Tool 2.1, merge to main, then start Tool 2.2 after break
 ## 7. PARKING LOT
 
 *Good ideas captured here. Not doing these now. Revisit later.*
+
+- **Tool 1.4 (Job Offer True Value) — Improvement Backlog**
+  - **P1 (Quick wins, low effort):**
+    - Add micro-copy under tool title: "Because you can't pay rent with a one-time joining bonus."
+    - Rename labels for clarity:
+      - "Current Annual Fixed / CTC" -> "Current Annual Fixed Pay (Base)" with hint to exclude variable/stocks
+      - "Guaranteed monthly change" -> "Monthly Cash Increase (Fixed)"
+      - "Realistic monthly value" -> "Expected Monthly Average"
+      - "Spread one-time components" -> "Amortize bonuses over"
+    - Refine variable confidence labels to human terms:
+      - Conservative (60%), Standard (80%), Aggressive (100%)
+    - Add trust copy: "How we calculate take-home ratio" + soft disclaimer that actual in-hand depends on tax regime/deductions.
+    - Add validation message for impossible input case where annual in-hand > annual CTC/fixed pay.
+  - **P2 (Decision support enhancements):**
+    - Add "Cash Flow Warning" badge when new fixed monthly in-hand is lower than current monthly in-hand.
+    - Add simple "Switch Score" (1-10) with bands such as Lateral Move / Moderate Hike / Strong Hike.
+    - Add variable-pay risk indicator when variable component is high (e.g., >25% of offer value).
+  - **P3 (Richer modeling + visualization):**
+    - Add optional "Year 1 Stocks / RSUs / ESOPs value" input.
+    - Add simple comparison chart (Current In-hand vs New Fixed vs New Expected Monthly).
+    - Add optional tax-threshold note when offer level likely changes effective take-home ratio.
 
 - Domain names — RupeeSense, SalaryLens, ClearRupee, SmartCTC, TaxDekho
 - Newsletter platform — Ghost, Beehiiv, or custom-built
@@ -317,5 +339,5 @@ financetools/
 
 ---
 
-*Last Updated: April 8, 2026 (Tool 2.1 committed on dev)*
+*Last Updated: April 8, 2026 (Tool 1.4 improvement backlog added)*
 *Update this date every time the document is revised.*
